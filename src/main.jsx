@@ -9,7 +9,7 @@ import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 const queryClient=new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-// we add te query client [arameter inside appProvider because we want to access some value form the global context]
+
 <AppProvider>
 <QueryClientProvider client={queryClient}>
     <App />
