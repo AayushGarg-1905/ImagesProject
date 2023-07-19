@@ -19,7 +19,6 @@ const Gallery = () => {
   })
   // console.log(response)
 
-  // basically when working with api always try to setUp these functionalities
   if(response.isLoading){
     return <section className='image-container'>
       <h4>Loading...</h4>
@@ -31,8 +30,8 @@ const Gallery = () => {
     </section>
   }
 
-  // we are checking wheter any value is returned or not . as sometimes image related to our search result is not present
-  const results=response.data.results; // you can see the properties by logging the response abpve . we get an object which has nested object of data which conatins a proeprty of results which has array of image ids
+
+  const results=response.data.results; 
   if(results.length<1){
     return <section className='image-container'>
       <h4>No Result Found</h4>
@@ -41,7 +40,6 @@ const Gallery = () => {
   return (
     <section className='image-container'>
       {results.map((item)=>{
-        // we did optional chaining to prevent error in case any property is missing
         const url=item?.urls?.regular 
         return <img src={url} key={item.id} alt={item.alt_description} className='img'/>
       })}
