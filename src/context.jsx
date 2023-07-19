@@ -2,7 +2,7 @@ import { createContext,useContext,useState,useEffect } from "react";
 
 const AppContext=createContext();
 
-// setting up the functionality so that our app automatically set darkmode base don user browser theme
+
 const getInitialDarkMode=()=>{
     const prefersDarkMode=window.matchMedia('(prefers-color-scheme:dark)').matches;
     console.log(prefersDarkMode)
@@ -17,7 +17,6 @@ export const AppProvider=({children})=>{
     }
 
     useEffect(()=>{
-        // adding or removing class base on dark theme toggle // more info in readme
         const body=document.querySelector('body');
         body.classList.toggle('dark-theme',isDarkTheme)
     },[isDarkTheme])
